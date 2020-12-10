@@ -12,7 +12,7 @@ echo "Sum of "$num" of digits = "$sum
 
 #output
 
-#preksha@DESKTOP-A0UDC7F:~$ sh a4.sh
+#pushti@DESKTOP-A0UDC7F:~$ sh a4.sh
 #Enter Five digit Number :
 #12345
 #Sum of 12345 of digits = 15

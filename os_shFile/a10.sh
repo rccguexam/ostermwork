@@ -9,7 +9,7 @@ else
 fi
 
 #output
-#preksha@DESKTOP-A0UDC7F:~$ sh a10.sh
+#pushti@DESKTOP-A0UDC7F:~$ sh a10.sh
 #Enter Year :
 #2019
 #2019 is not leap year.

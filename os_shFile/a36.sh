@@ -16,7 +16,7 @@ fi
 
 #output
 
-#preksha@DESKTOP-A0UDC7F:~$ sh a36.sh
+#pushti@DESKTOP-A0UDC7F:~$ sh a36.sh
 #Enter angle
 #90
 #Right angle

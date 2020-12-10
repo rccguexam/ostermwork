@@ -14,7 +14,7 @@ done
 
 #output
 
-#preksha@DESKTOP-A0UDC7F:~$ sh a31.sh
+#pushti@DESKTOP-A0UDC7F:~$ sh a31.sh
 #The list of File Names in the current Directory
 #Which have read,write and execute permission
 #a1.sh

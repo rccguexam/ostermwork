@@ -11,5 +11,5 @@ done
 
 #output
 
-#preksha@DESKTOP-A0UDC7F:~$ sh a32.sh demo.txt
+#pushti@DESKTOP-A0UDC7F:~$ sh a32.sh demo.txt
 #demo.txt -> file with lines: 3

@@ -11,7 +11,7 @@ else
 fi
 
 #output
-#preksha@DESKTOP-A0UDC7F:~$ sh a7.sh
+#pushti@DESKTOP-A0UDC7F:~$ sh a7.sh
 #Enter Cost price :
 #100
 #Enter Selling price :

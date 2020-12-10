@@ -9,7 +9,7 @@ else
 	echo "$no is odd number.."
 fi
 #output
-#preksha@DESKTOP-A0UDC7F:~$ sh a8.sh
+#pushti@DESKTOP-A0UDC7F:~$ sh a8.sh
 #Enter Number :
 #12
 #12 is even number..

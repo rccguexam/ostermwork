@@ -23,5 +23,5 @@ done
 
 #output
 
-#preksha@DESKTOP-A0UDC7F:~$ sh a33.sh preksha
-#directory exists..preksha file created in "mydir"
+#pushti@DESKTOP-A0UDC7F:~$ sh a33.sh pushti
+#directory exists..pushti file created in "mydir"

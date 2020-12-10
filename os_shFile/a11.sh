@@ -10,6 +10,6 @@ else
 fi
 
 #output
-#preksha@DESKTOP-A0UDC7F:~$ sh a11.sh demo2.txt demotest.txt
+#pushti@DESKTOP-A0UDC7F:~$ sh a11.sh demo2.txt demotest.txt
 #demo2.txt and demotest.txt are not same files
 

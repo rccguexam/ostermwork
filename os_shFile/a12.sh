@@ -15,7 +15,7 @@ fi
 #output
 #[ec2-user@ip-172-31-93-145 ~]$ sh a12.sh
 #Enter User Name :
-#preksha
+#pushti
 #User is Logged in..
 #Please enter message :
 #hii

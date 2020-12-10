@@ -17,7 +17,7 @@ echo "$exp ^ $pow = $ans"
 
 #output
 
-#preksha@DESKTOP-A0UDC7F:~$ sh a20.sh
+#pushti@DESKTOP-A0UDC7F:~$ sh a20.sh
 #Enter Power :
 #5
 #Enter Exponent :
