@@ -18,7 +18,7 @@ echo "Circumference  of the circle = "$cirm
 
 #output
 
-#preksha@DESKTOP-A0UDC7F:~$ sh a3.sh
+#Rutwik@DESKTOP-A0UDC7F:~$ sh a3.sh
 #Enter length for rectangle :
 #2
 #Enter breadth for rectangle :

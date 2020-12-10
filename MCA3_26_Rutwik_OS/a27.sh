@@ -20,6 +20,6 @@
 done <"$1" # $1 is the file name we want to search
 
 #output
-#preksha@DESKTOP-A0UDC7F:~$ sh a27.sh wordFile.txt findFile.txt
+#Rutwik@DESKTOP-A0UDC7F:~$ sh a27.sh wordFile.txt findFile.txt
 #1
 #Searching word: 'samsung' ...

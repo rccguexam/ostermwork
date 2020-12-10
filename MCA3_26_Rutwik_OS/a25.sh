@@ -11,7 +11,7 @@ done
 
 #output
 
-#preksha@DESKTOP-A0UDC7F:~$ sh a25.sh
+#Rutwik@DESKTOP-A0UDC7F:~$ sh a25.sh
 #1 1 1
 #1 1 2
 #1 1 3

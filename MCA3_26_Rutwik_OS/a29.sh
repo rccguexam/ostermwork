@@ -9,6 +9,6 @@ do
 done
 
 #output
-#preksha@DESKTOP-A0UDC7F:~$ sh a29.sh temp.txt
+#Rutwik@DESKTOP-A0UDC7F:~$ sh a29.sh temp.txt
 #Searching file : temp.txt...
 #Found in temp.txt

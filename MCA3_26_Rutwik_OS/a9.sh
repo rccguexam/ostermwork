@@ -24,7 +24,7 @@ else
 fi
 
 #output
-#preksha@DESKTOP-A0UDC7F:~$ sh a9.sh
+#Rutwik@DESKTOP-A0UDC7F:~$ sh a9.sh
 #Enter Number :
 #6
 #6 is not prime Number.

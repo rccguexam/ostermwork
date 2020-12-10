@@ -14,7 +14,7 @@ echo "Distance in Centimeter = "$cm
 
 #output
 
-    #preksha@DESKTOP-A0UDC7F:~$ sh a2.sh
+    #Rutwik@DESKTOP-A0UDC7F:~$ sh a2.sh
     #Enter Distance between 2 cities :
     #125
     #Distance in meter = 125000

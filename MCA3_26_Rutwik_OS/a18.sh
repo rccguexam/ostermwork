@@ -13,7 +13,7 @@ echo "Factorial = $fact"
 
 #output
 
-#preksha@DESKTOP-A0UDC7F:~$ sh a18.sh
+#Rutwik@DESKTOP-A0UDC7F:~$ sh a18.sh
 #Enter Number :
 #5
 #Factorial = 120

@@ -18,7 +18,7 @@ do
 done
 
 #output
-#preksha@DESKTOP-A0UDC7F:~$ sh a19.sh
+#Rutwik@DESKTOP-A0UDC7F:~$ sh a19.sh
 #Enter number :
 #5
 #Fibonacci Series :

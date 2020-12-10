@@ -15,6 +15,6 @@ else
 fi
 
 #output
-#preksha@DESKTOP-A0UDC7F:~$ sh a15.sh
+#Rutwik@DESKTOP-A0UDC7F:~$ sh a15.sh
 #16
 #Good Evening..

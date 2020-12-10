@@ -25,7 +25,7 @@ do
 done
 
 #output
-#preksha@DESKTOP-A0UDC7F:~$ sh a17.sh
+#Rutwik@DESKTOP-A0UDC7F:~$ sh a17.sh
 #Enter !st Integer :
 #40
 #Enter 2nd Integer :

@@ -7,9 +7,9 @@ else
 fi
 
 #output
-#preksha@DESKTOP-A0UDC7F:~$ sh a13.sh
+#Rutwik@DESKTOP-A0UDC7F:~$ sh a13.sh
 #please enter user name...
-#preksha@DESKTOP-A0UDC7F:~$ sh a13.sh preksha
-#preksha logged in on total 1 terminals
+#Rutwik@DESKTOP-A0UDC7F:~$ sh a13.sh Rutwik
+#Rutwik logged in on total 1 terminals
 
 
