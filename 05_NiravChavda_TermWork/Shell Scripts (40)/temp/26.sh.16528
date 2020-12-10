@@ -1,0 +1,14 @@
+#26. Write a script for renaming each file in the directory such that it will have the current  
+#shell PID as an extension. The shell script should ensure that the directories do not
+#get renamed.
+
+
+for f in *
+do
+    [ -e $f ] || continue
+        mv $f $f.$$
+done
+
+
+# Output :
+
