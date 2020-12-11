@@ -5,8 +5,8 @@
 ls -l | awk '$1 ~ /rwx/'
 
 #Output:
-#drwxr-x--x 2 shivangi27 shivangi27  4096 Nov 20 20:52 dir2.3125
-#drwxrwxr-x 2 shivangi27 shivangi27  4096 Nov 20 20:35 dir.3125
-#drwxr-x--x 2 shivangi27 shivangi27  4096 Nov 20 20:28 dir3.3125
+#drwxr-x--x 2 shubham31 shubham31  4096 Nov 20 20:52 dir2.3125
+#drwxrwxr-x 2 shubham31 shubham31  4096 Nov 20 20:35 dir.3125
+#drwxr-x--x 2 shubham31 shubham31  4096 Nov 20 20:28 dir3.3125
 
 

@@ -31,24 +31,24 @@ fi
 
 #Output :
 #//checking new1.txt which is blank
-#pradip@DESKTOP-8NGKNR6:~$ cat new1.txt
+#shubham31@DESKTOP-8NGKNR6:~$ cat new1.txt
 
 #//checking new.txt 
-#pradip@DESKTOP-8NGKNR6:~$ cat new.txt
+#shubham31@DESKTOP-8NGKNR6:~$ cat new.txt
 #Hello
-#My name is Pradip
+#My name is Shubham
 #Class MCA 3
 #Have a good Day
 #Nice to Meet You
 
 #//running the scrpit
-#pradip@DESKTOP-8NGKNR6:~$ sh 30.sh new.txt new1.txt
+#shubham31@DESKTOP-8NGKNR6:~$ sh 30.sh new.txt new1.txt
 #'new.txt' copied to -> new1.txt
 
 #//checking new1.txt again
-#pradip@DESKTOP-8NGKNR6:~$ cat new1.txt
+#shubham31@DESKTOP-8NGKNR6:~$ cat new1.txt
 #Hello
-#My name is Pradip
+#My name is Shubham
 #Class MCA 3
 #Have a good Day
 #Nice to Meet You
