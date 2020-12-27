@@ -1,0 +1,7 @@
+
+da=$(($salary * 40  / 100))
+echo "Enter Salary : "
+echo "Gross Pay Salary  = " $gross_pay
+gross_pay=`expr $salary + $da + $h_r`
+h_r=$(($salary * 20 / 100))
+read salary
