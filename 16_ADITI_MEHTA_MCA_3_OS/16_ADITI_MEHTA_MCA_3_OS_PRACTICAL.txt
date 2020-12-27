@@ -1,0 +1,1265 @@
+=======================================================================================================
+ROLLNO 	: 16
+NAME 	: ADITI MEHTA
+CLASS 	: MCA-3
+SUBJECT	: OPERATING SYSTEM
+=======================================================================================================
+------------------SHELL PROGRAMMING ASSIGNMENT ---------------------
+=======================================================================================================
+Write the shell scripts for the following :
+
+1. Basic salary of a person is input through the keyboard. His dearness allowance is 40% of basic
+salary and house rent is 20% of basic salary. Write a program to calculate the gross pay.
+
+read -p "Enter Your Salary : " salary
+dearness=$(echo $salary*40/100 | bc)
+houserent=$(echo $salary*20/100 | bc)
+gross=$((salary-houserent+dearness))
+echo "Dearness Allowance : "$dearness
+echo "House Rent : "$houserent
+echo "Gross Salaray : "$gross
+
+Output : 
+Enter Your Salary : 12000
+Dearness Allowance : 4800
+House Rent : 2400
+Gross Salaray : 14400
+
+
+2. The distance between two cities is input through the keyboard.  (in km). Write a program to    
+convert this distance into metres, feet, inches and centimeters and display the results.
+
+read -p "Enter Distance between 2 cities in kms : " kilometer
+echo "Meters : "$((kilometer*1000))
+echo "Feet : " $(echo $kilometer*3280.84 | bc)
+echo "Inches : " $(echo $kilometer*39370.08 | bc)
+echo "centimeters : " $((kilometer*100000))
+
+Output :
+Enter Distance between 2 cities in kms : 23
+Meters : 23000
+Feet :  75459.32
+Inches :  905511.84
+centimeters :  2300000
+
+
+3. The length and breadth of a rectangle and radius of a circle are entered through the keyboard,  
+calculate the perimeter and area of rectangle and area and circumference of the circle.
+
+PI=3.14159
+read -p "Enter Length And Breadth of Rectangle : " length breadth
+read -p "Enter Radius of circle : " radius
+echo "Perimeter of the Rectangle is : " $((2*length + 2*breadth))
+echo "Area of Rectangle is : " $((length*breadth))
+echo "Circumference of Circle : " $(echo 2.0*$PI*$radius | bc)
+echo "Area of circle : " $(echo $PI*$radius^2 | bc)
+
+Output:
+Enter Length And Breadth of Rectangle : 3 5
+Enter Radius of circle : 4
+Perimeter of the Rectangle is :  16
+Area of Rectangle is :  15
+Circumference of Circle :  25.13272
+Area of circle :  50.26544
+
+
+4. If a five digit number is entered through the keyboard, calculate the sum of its digits.
+
+total=0
+read -p "Enter Number : " num
+length=$(echo -n $num | wc -c)
+i=1
+while [ $i -le $length ]
+do
+        remainder=$(echo $num%10 | bc)
+        total=$(echo $total+$remainder | bc)
+        num=$(echo $num/10 | bc)
+        i=$(echo $i+1 | bc)
+done
+echo "Total : " $total
+
+Output :
+Enter Number : 123456
+Total :  21
+
+
+5. The file /etc/passwd contains info about all users. Write a program which would receive the 
+logname during execution, obtain     information about it from the file and display the       
+information on screen in some appropriate format. (Hint : use cut)
+    eg. Logname : , UID : , GID : , Default working directory : , Default working shell :
+
+
+filepath="/etc/passwd"
+
+cut -d ":" -f 1,3,4,5,6,7 $filepath --output-delimiter=' | '
+
+Output :
+
+root | 0 | 0 | root | /root | /bin/bash
+daemon | 1 | 1 | daemon | /usr/sbin | /usr/sbin/nologin
+bin | 2 | 2 | bin | /bin | /usr/sbin/nologin
+sys | 3 | 3 | sys | /dev | /usr/sbin/nologin
+sync | 4 | 65534 | sync | /bin | /bin/sync
+games | 5 | 60 | games | /usr/games | /usr/sbin/nologin
+man | 6 | 12 | man | /var/cache/man | /usr/sbin/nologin
+lp | 7 | 7 | lp | /var/spool/lpd | /usr/sbin/nologin
+mail | 8 | 8 | mail | /var/mail | /usr/sbin/nologin
+news | 9 | 9 | news | /var/spool/news | /usr/sbin/nologin
+uucp | 10 | 10 | uucp | /var/spool/uucp | /usr/sbin/nologin
+proxy | 13 | 13 | proxy | /bin | /usr/sbin/nologin
+www-data | 33 | 33 | www-data | /var/www | /usr/sbin/nologin
+backup | 34 | 34 | backup | /var/backups | /usr/sbin/nologin
+list | 38 | 38 | Mailing List Manager | /var/list | /usr/sbin/nologin
+irc | 39 | 39 | ircd | /var/run/ircd | /usr/sbin/nologin
+gnats | 41 | 41 | Gnats Bug-Reporting System (admin) | /var/lib/gnats | /usr/sbin/nologin
+nobody | 65534 | 65534 | nobody | /nonexistent | /usr/sbin/nologin
+systemd-network | 100 | 102 | systemd Network Management,,, | /run/systemd | /usr/sbin/nologin
+systemd-resolve | 101 | 103 | systemd Resolver,,, | /run/systemd | /usr/sbin/nologin
+systemd-timesync | 102 | 104 | systemd Time Synchronization,,, | /run/systemd | /usr/sbin/nologin
+messagebus | 103 | 106 |  | /nonexistent | /usr/sbin/nologin
+syslog | 104 | 110 |  | /home/syslog | /usr/sbin/nologin
+_apt | 105 | 65534 |  | /nonexistent | /usr/sbin/nologin
+tss | 106 | 111 | TPM software stack,,, | /var/lib/tpm | /bin/false
+uuidd | 107 | 112 |  | /run/uuidd | /usr/sbin/nologin
+tcpdump | 108 | 113 |  | /nonexistent | /usr/sbin/nologin
+sshd | 109 | 65534 |  | /run/sshd | /usr/sbin/nologin
+landscape | 110 | 115 |  | /var/lib/landscape | /usr/sbin/nologin
+pollinate | 111 | 1 |  | /var/cache/pollinate | /bin/false
+aditi | 1000 | 1000 | ,,, | /home/aditi | /bin/bash
+
+
+6. The script will receive the filename or filename with its full path, the script should 
+obtain information about this file as given by "ls -l" and display it in proper format.
+    eg. Filename : , File access permissions : , Number of links : , Owner of the file : , 
+Group to which belongs : Size of file : , File modification date : , File modification time :
+
+
+echo "---------- Using stat----------"
+stat -c "%A %h %U %G %s %.19y %n" *
+
+
+
+printf "\n---------- Using ls -l ----------\n"
+
+ls -l | tr -s ' ' | cut -d ' ' -f 1-9 -s | awk '{print $1,$2,$3,$4,$5,$6,$7,$8,"\033[32;1m"$9"\033[0m"}'
+echo ""
+ls -l | tr -s ' ' |cut -d ' ' -f 1-9 -s | awk '{print $1" | "$3" | "$4" | "$5" | "$6,$7" | "$8" |\033[32;1m "$9 "\033[0m"}'
+
+
+Output:
+
+---------- Using stat----------
+-rw-r--r-- 1 aditi aditi 431 2020-11-24 23:46:22 1
+-rw-r--r-- 1 aditi aditi 254 2020-11-26 11:37:58 1.sh
+-rw-r--r-- 1 aditi aditi 244 2020-11-28 13:07:05 11.sh
+-rw-r--r-- 1 aditi aditi 37 2020-11-28 13:11:54 13.sh
+-rw-r--r-- 1 aditi aditi 40 2020-11-28 13:13:34 14.sh
+-rw-r--r-- 1 aditi aditi 178 2020-11-28 13:23:32 15.sh
+-rw-r--r-- 1 aditi aditi 279 2020-11-28 13:26:41 16.sh
+-rw-r--r-- 1 aditi aditi 342 2020-11-28 13:30:34 17.sh
+-rw-r--r-- 1 aditi aditi 118 2020-11-28 13:32:56 18.sh
+-rw-r--r-- 1 aditi aditi 219 2020-11-28 13:37:19 19.sh
+-rw-r--r-- 1 aditi aditi 241 2020-11-26 11:50:26 2.sh
+-rw-r--r-- 1 aditi aditi 98 2020-11-28 14:06:02 20.sh
+-rw-r--r-- 1 aditi aditi 196 2020-11-28 14:16:05 21.sh
+-rw-r--r-- 1 aditi aditi 51 2020-11-28 14:24:06 22.sh
+-rw-r--r-- 1 aditi aditi 480 2020-11-28 14:42:22 24.sh
+-rw-r--r-- 1 aditi aditi 352 2020-11-26 12:15:07 3.sh
+-rw-r--r-- 1 aditi aditi 890 2020-11-28 12:27:00 34.sh
+-rw-r--r-- 1 aditi aditi 322 2020-11-28 13:32:18 35.sh
+-rw-r--r-- 1 aditi aditi 195 2020-11-28 14:33:11 37.sh
+-rw-r--r-- 1 aditi aditi 472 2020-11-28 14:59:43 38.sh
+-rw-r--r-- 1 aditi aditi 395 2020-11-28 15:39:36 39.sh
+-rw-r--r-- 1 aditi aditi 246 2020-11-26 13:51:18 4.sh
+-rw-r--r-- 1 aditi aditi 195 2020-11-28 17:13:16 40.sh
+-rw-r--r-- 1 aditi aditi 85 2020-11-28 12:36:42 5.sh
+-rw-r--r-- 1 aditi aditi 363 2020-11-28 12:43:54 6.sh
+-rw-r--r-- 1 aditi aditi 115 2020-11-28 13:06:36 file1.txt
+drwxr-xr-x 2 aditi aditi 4096 2020-10-05 20:14:40 hello
+-rwxr-xr-x 1 aditi aditi 798 2020-11-25 00:13:39 hello.sh
+
+---------- Using ls -l ----------
+total 112
+-rw-r--r-- 1 aditi aditi 431 Nov 24 23:46 1
+-rw-r--r-- 1 aditi aditi 254 Nov 26 11:37 1.sh
+-rw-r--r-- 1 aditi aditi 244 Nov 28 13:07 11.sh
+-rw-r--r-- 1 aditi aditi 37 Nov 28 13:11 13.sh
+-rw-r--r-- 1 aditi aditi 40 Nov 28 13:13 14.sh
+-rw-r--r-- 1 aditi aditi 178 Nov 28 13:23 15.sh
+-rw-r--r-- 1 aditi aditi 279 Nov 28 13:26 16.sh
+-rw-r--r-- 1 aditi aditi 342 Nov 28 13:30 17.sh
+-rw-r--r-- 1 aditi aditi 118 Nov 28 13:32 18.sh
+-rw-r--r-- 1 aditi aditi 219 Nov 28 13:37 19.sh
+-rw-r--r-- 1 aditi aditi 241 Nov 26 11:50 2.sh
+-rw-r--r-- 1 aditi aditi 98 Nov 28 14:06 20.sh
+-rw-r--r-- 1 aditi aditi 196 Nov 28 14:16 21.sh
+-rw-r--r-- 1 aditi aditi 51 Nov 28 14:24 22.sh
+-rw-r--r-- 1 aditi aditi 480 Nov 28 14:42 24.sh
+-rw-r--r-- 1 aditi aditi 352 Nov 26 12:15 3.sh
+-rw-r--r-- 1 aditi aditi 890 Nov 28 12:27 34.sh
+-rw-r--r-- 1 aditi aditi 322 Nov 28 13:32 35.sh
+-rw-r--r-- 1 aditi aditi 195 Nov 28 14:33 37.sh
+-rw-r--r-- 1 aditi aditi 472 Nov 28 14:59 38.sh
+-rw-r--r-- 1 aditi aditi 395 Nov 28 15:39 39.sh
+-rw-r--r-- 1 aditi aditi 246 Nov 26 13:51 4.sh
+-rw-r--r-- 1 aditi aditi 195 Nov 28 17:13 40.sh
+-rw-r--r-- 1 aditi aditi 85 Nov 28 12:36 5.sh
+-rw-r--r-- 1 aditi aditi 363 Nov 28 12:43 6.sh
+-rw-r--r-- 1 aditi aditi 115 Nov 28 13:06 file1.txt
+drwxr-xr-x 2 aditi aditi 4096 Oct 5 20:14 hello
+-rwxr-xr-x 1 aditi aditi 798 Nov 25 00:13 hello.sh
+
+total |  |  |  |   |  |
+-rw-r--r-- | aditi | aditi | 431 | Nov 24 | 23:46 | 1
+-rw-r--r-- | aditi | aditi | 254 | Nov 26 | 11:37 | 1.sh
+-rw-r--r-- | aditi | aditi | 244 | Nov 28 | 13:07 | 11.sh
+-rw-r--r-- | aditi | aditi | 37 | Nov 28 | 13:11 | 13.sh
+-rw-r--r-- | aditi | aditi | 40 | Nov 28 | 13:13 | 14.sh
+-rw-r--r-- | aditi | aditi | 178 | Nov 28 | 13:23 | 15.sh
+-rw-r--r-- | aditi | aditi | 279 | Nov 28 | 13:26 | 16.sh
+-rw-r--r-- | aditi | aditi | 342 | Nov 28 | 13:30 | 17.sh
+-rw-r--r-- | aditi | aditi | 118 | Nov 28 | 13:32 | 18.sh
+-rw-r--r-- | aditi | aditi | 219 | Nov 28 | 13:37 | 19.sh
+-rw-r--r-- | aditi | aditi | 241 | Nov 26 | 11:50 | 2.sh
+-rw-r--r-- | aditi | aditi | 98 | Nov 28 | 14:06 | 20.sh
+-rw-r--r-- | aditi | aditi | 196 | Nov 28 | 14:16 | 21.sh
+-rw-r--r-- | aditi | aditi | 51 | Nov 28 | 14:24 | 22.sh
+-rw-r--r-- | aditi | aditi | 480 | Nov 28 | 14:42 | 24.sh
+-rw-r--r-- | aditi | aditi | 352 | Nov 26 | 12:15 | 3.sh
+-rw-r--r-- | aditi | aditi | 890 | Nov 28 | 12:27 | 34.sh
+-rw-r--r-- | aditi | aditi | 322 | Nov 28 | 13:32 | 35.sh
+-rw-r--r-- | aditi | aditi | 195 | Nov 28 | 14:33 | 37.sh
+-rw-r--r-- | aditi | aditi | 472 | Nov 28 | 14:59 | 38.sh
+-rw-r--r-- | aditi | aditi | 395 | Nov 28 | 15:39 | 39.sh
+-rw-r--r-- | aditi | aditi | 246 | Nov 26 | 13:51 | 4.sh
+-rw-r--r-- | aditi | aditi | 195 | Nov 28 | 17:13 | 40.sh
+-rw-r--r-- | aditi | aditi | 85 | Nov 28 | 12:36 | 5.sh
+-rw-r--r-- | aditi | aditi | 363 | Nov 28 | 12:43 | 6.sh
+-rw-r--r-- | aditi | aditi | 115 | Nov 28 | 13:06 | file1.txt
+drwxr-xr-x | aditi | aditi | 4096 | Oct 5 | 20:14 | hello
+-rwxr-xr-x | aditi | aditi | 798 | Nov 25 | 00:13 | hello.sh
+
+
+
+7. If cost price and selling price of an item are entered through the keyboard, write a program 
+to determine whether the seller has made profit or loss. Also determine how much profit/loss    
+is made.
+
+read -p "Enter The Cost Price For Product : " cost
+read -p "Enter The Swlling price for Product : " selling
+if [ $cost -lt $selling ]
+then
+        echo "Profit : " $((selling-cost))
+elif [ $cost -gt $selling ]
+then
+        echo "Loss : " $((selling-cost))
+else
+        echo "No Profit No Loss"
+fi
+
+Output :
+Enter The Cost Price For Product : 30
+Enter The Swlling price for Product : 23
+Loss :  -7
+
+Enter The Cost Price For Product : 45
+Enter The Swlling price for Product : 56
+Profit :  11
+
+Enter The Cost Price For Product : 3
+Enter The Swlling price for Product : 3
+No Profit No Loss
+
+
+8. Check whether the entered no. is odd or even.
+
+read -p "Enter The Number : " num
+check=$(echo $num%2 | bc)
+if [ $check -eq 0 ]
+then
+        echo "EVEN"
+els
+        echo "ODD"
+fi
+
+Output :
+Enter The Number : 7
+ODD
+
+Enter The Number : 22
+EVEN
+
+
+9. Check whether the entered no. is prime or not.
+
+read -p "Enter the Number : " prime
+i=2 
+f=0 
+while test $i -le `expr $prime / 2`  
+do 
+	if test `expr $prime % $i` -eq 0  
+	then
+		f=1 
+	fi
+	i=`expr $i + 1` 
+done
+
+if test $f -eq 1  
+then
+	echo "Not Prime"
+else
+	echo "Prime"
+fi
+
+Output :
+Enter the Number : 7
+Prime
+
+Enter the Number : 8
+Not Prime
+
+Enter the Number : 22
+Not Prime
+
+
+10. Check whether the entered year is a leap year or not.
+
+read -p "Enter The Year : " year
+if test `expr $year % 400` -eq 0
+then
+	echo "Its Leap Year"
+elif test `expr $year % 100` -eq 0
+then
+	echo "Its Not A Leap Year"	
+elif test `expr $year % 4` -eq  0
+then
+	echo "Its Leap Year"
+else 
+	echo "Its Not A Leap Year"
+fi
+
+Output :
+Enter The Year : 2014
+Its Not A Leap Year
+
+Enter The Year : 2016
+Its Leap Year
+
+Enter The Year : 2019
+Its Not A Leap Year
+
+
+11. The script receives two file names as arguments, the script must check whether the files are     
+same or not, if they are similar then delete the second file.
+
+if [ ! -f $1 ]; then
+        echo "$1 not found!"
+        exit
+fi
+
+if [ ! -f $2 ]; then
+        echo "$2 not found!"
+        exit
+fi
+
+my_var=$(cmp -b $1 $2)
+if test -z "$my_var"
+then
+        echo "Files are same"
+        rm $2
+        echo $2 "Deleted"
+else
+        echo "Files are not same"
+fi
+
+aditi@DESKTOP-8NGKNR6:~$ ls
+1     11.sh  14.sh  16.sh  18.sh  2.sh   21.sh  24.sh  34.sh  37.sh  39.sh  40.sh  6.sh       file2.txt  hello.sh
+1.sh  13.sh  15.sh  17.sh  19.sh  20.sh  22.sh  3.sh   35.sh  38.sh  4.sh   5.sh   file1.txt  hello
+
+Output : 
+
+aditi@DESKTOP-8NGKNR6:~$ sh 11.sh file1.txt file2.txt
+Files are same
+file2.txt Deleted
+
+aditi@DESKTOP-8NGKNR6:~$ ls
+1     11.sh  14.sh  16.sh  18.sh  2.sh   21.sh  24.sh  34.sh  37.sh  39.sh  40.sh  6.sh       hello
+1.sh  13.sh  15.sh  17.sh  19.sh  20.sh  22.sh  3.sh   35.sh  38.sh  4.sh   5.sh   file1.txt  hello.sh
+
+
+14. Write a shell script to display the date with the format :- 25th October 2005 is a Tuesday.
+
+d=`date +%d\ %B\ %Y\ is\ a\ %A`
+echo $d
+
+Output :
+30 November 2020 is a Monday
+
+
+15. Write a shell script to display the appropriate message like : Good Morning / Good Afternoon     
+/ Good Evening
+
+hour=`date +%H`
+if [ $hour -ge 21 ]
+then
+        echo "Good Night"
+elif [ $hour -ge 16 ]
+then
+        echo "Good Evening"
+elif [ $hour -ge 12 ]
+then
+        echo "Good Afternoon"
+else
+        echo "Good Morning"
+fi
+
+Output:
+
+Good Afternoon
+
+
+16. Write a shell script to display the menu driven interface :- 
+1) list all files of the current directory 
+2) print the current directory 
+3) print the date 
+4) print the users otherwise     
+display "Invalid Option".
+
+
+echo "1) List all Files"
+echo "2) Print Current Directory"
+echo "3) Print Date"
+echo "4) Print Users"
+
+read choice
+
+case $choice in
+        1)  ls
+            ;;
+        2)  pwd
+            ;;
+        3)  echo `date +%d-%B-%Y`
+            ;;
+        4)  awk -F: '{ print $1}' /etc/passwd
+            ;;
+        *)  echo "Invalid Option"
+esac
+
+Output:
+
+aditi@DESKTOP-8NGKNR6:~$ sh 16.sh
+1) List all Files
+2) Print Current Directory
+3) Print Date
+4) Print Users
+1
+1     11.sh  14.sh  16.sh  18.sh  2.sh   21.sh  24.sh  34.sh  37.sh  39.sh  40.sh  6.sh       hello
+1.sh  13.sh  15.sh  17.sh  19.sh  20.sh  22.sh  3.sh   35.sh  38.sh  4.sh   5.sh   file1.txt  hello.sh
+aditi@DESKTOP-8NGKNR6:~$ sh 16.sh
+1) List all Files
+2) Print Current Directory
+3) Print Date
+4) Print Users
+2
+/home/aditi
+aditi@DESKTOP-8NGKNR6:~$ sh 16.sh
+1) List all Files
+2) Print Current Directory
+3) Print Date
+4) Print Users
+3
+30-November-2020
+aditi@DESKTOP-8NGKNR6:~$ sh 16.sh
+1) List all Files
+2) Print Current Directory
+3) Print Date
+4) Print Users
+4
+root
+daemon
+bin
+sys
+sync
+games
+man
+lp
+mail
+news
+uucp
+proxy
+www-data
+backup
+list
+irc
+gnats
+nobody
+systemd-network
+systemd-resolve
+systemd-timesync
+messagebus
+syslog
+_apt
+tss
+uuidd
+tcpdump
+sshd
+landscape
+pollinate
+aditi
+
+
+17. Create a menu driven calculator which asks for two integers and perform basic arithmetic     
+operations.
+
+echo "Enter Number 1"
+read a
+
+echo "Enter Number 2"
+read b
+
+echo "1) Add"
+echo "2) Subtract"
+echo "3) Multiply"
+echo "4) Divide"
+echo "5) Modulo Division"
+
+read choice
+
+case $choice in
+        1)  echo $(($a + $b));;
+        2)  echo $(($a - $b));;
+        3)  echo $(($a * $b));;
+        4)  echo $(($a / $b));;
+        5)  echo $(($a % $b));;
+        *)  echo "Invalid Option"
+esac
+
+Output:
+
+Enter Number 1
+30
+Enter Number 2
+20
+1) Add
+2) Subtract
+3) Multiply
+4) Divide
+5) Modulo Division
+1
+50
+
+
+18. Find the factorial of any number.
+
+read -p "Enter a number: " num
+fact=1
+
+while [ $num -gt 1 ]
+do
+        fact=$((fact*num))
+        num=$((num-1))
+done
+echo $fact
+
+Output:
+
+Enter a number: 6
+720
+
+
+19. Display the fibonacci series upto some number.
+
+echo "How many number of terms to be generated ?"
+read n
+x=0
+y=1
+i=2
+echo "Fibonacci Series up to $n terms :"
+echo "$x"
+echo "$y"
+while [ $i -lt $n ]
+do
+        i=`expr $i + 1 `
+        z=`expr $x + $y `
+        echo "$z"
+        x=$y
+        y=$z
+done
+
+Output:
+
+How many number of terms to be generated ?
+7
+Fibonacci Series up to 7 terms :
+0
+1
+1
+2
+3
+5
+8
+
+20. Two numbers are entered through the keyboard, find the power, one number raised to another.
+
+read -p "Enter base and exponent seperated by space: " base exponent
+echo "$base^$exponent" | bc
+
+Output:
+
+Enter base and exponent seperated by space: 3 7
+2187
+
+
+21. Write a script which has the functionality similar to head and tail commands.
+
+
+#! /bin/bash
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+lines=$(wc -l $2 | awk '{print $1;}')
+
+
+# Using SED ===================================
+startFromLine=$(echo "$lines-$1" | bc)
+echo -e "\e[1;36m"  # Changing Color
+printf "\n ---------- Using sed ----------\n"
+echo -en "\e[0m"  # Changing Color Back
+sed -n 1,$1p $2
+echo " ..."
+tail -$1 $2
+
+Output:
+
+ ---------- Using sed ----------
+-en
+Hello
+My name is aditi
+ ...
+Have a good Day
+Nice to Meet You
+
+
+22. Write a script which reports name and size of all files in a directory. whose sizes exceed 1000. 
+The filenames should be printed in       the descending order of their sizes. The total         
+no. of files must be reported.
+
+ls --sort=size -l | awk '$5 >= 1000 {print $5,$9}'
+
+Output :
+
+#this is file name "hello"
+4096 hello
+
+
+24. Print the prime nos. from 1 to 300.
+
+checkPrime () {
+        n=$1
+        if [ $n -le 1 ]
+        then
+                return 0
+        fi
+
+        if [ $n -le 3 ]
+        then
+                return 1
+        fi
+
+        if [ $(($n % 2)) -eq 0 ]
+        then
+                return 0
+        fi
+
+        if [ $(($n % 3)) -eq 0 ]
+        then
+                return 0
+        fi
+        i=5
+        while [ $(($i*$i)) -le $n ]
+        do
+                if [ $(($n % $i)) -eq 0 ]
+                then
+                        return 0
+                fi
+                if [ $(($n % ($i+2))) -eq 0 ]
+                then
+                        return 0
+                fi
+                i=$(($i+6))
+        done
+        return 1
+}
+
+num=2
+while [ $num -le 300 ]
+do
+        checkPrime $num
+        isPrime=$?
+
+        if [ $isPrime -eq 1 ]
+        then
+                echo "$num "
+        fi
+
+        num=$((num+1))
+done
+
+Output :
+
+2
+3
+5
+7
+11
+13
+17
+19
+23
+29
+31
+37
+41
+43
+47
+53
+59
+61
+67
+71
+73
+79
+83
+89
+97
+101
+103
+107
+109
+113
+127
+131
+137
+139
+149
+151
+157
+163
+167
+173
+179
+181
+191
+193
+197
+199
+211
+223
+227
+229
+233
+239
+241
+251
+257
+263
+269
+271
+277
+281
+283
+293
+
+25. Program must display all the combinations of 1, 2, and 3.
+
+
+for i in 1 2 3
+do
+        for j in 1 2 3
+        do
+                for k in 1 2 3
+                do
+                            if [ $k -le $j ]
+                            then
+                                    if [ $j -le $i ]
+                                    then
+                                        echo $i $j $k
+                                    fi
+                            fi
+                done
+        done
+done
+
+Output:
+
+1 1 1
+2 1 1
+2 2 1
+2 2 2
+3 1 1
+3 2 1
+3 2 2
+3 3 1
+3 3 2
+3 3 3
+
+
+26. Write a script for renaming each file in the directory such that it will have the current  
+shell PID as an extension. The shell script should ensure that the directories do not
+get renamed.
+
+for f in *
+do
+    [ -e $f ] || continue
+        mv $f $f.$$
+done
+
+Output :
+
+aditi@DESKTOP-8NGKNR6:~/try$ ls
+26.sh  new1.txt  new2.txt  new3.txt
+
+aditi@DESKTOP-8NGKNR6:~/try$ sh 26.sh
+
+aditi@DESKTOP-8NGKNR6:~/try$ ls
+26.sh.587  new1.txt.587  new2.txt.587  new3.txt.587
+
+
+
+27. A file called wordfile consists of several words. Write a shell script which will receive a 
+list of filenames, the first of which would be       wordfile. The shell script should report         
+all occurences of each word in wordfile in the rest of the files supplied as arguments.
+
+filesToRead=$(($#-1))
+echo $filesToRead
+
+# Reading Line by Line
+while read line; do
+        # Reading Word by Word
+        for word in $line; do
+                echo "Searching word: '$word' ..."
+                # 2 is slice starting index
+                # filesToRead is slice length
+                grep --color=always -n $word $2
+                printf "Done.\n\n"
+        done
+done <"$1" # $1 is the file name we want to search
+
+Output :
+Searching word: 'find' ...
+1:I need to find a girlfriend
+Done.
+
+Searching word: 'all' ...
+2:I seached all universes
+Done.
+
+Searching word: 'these' ...
+Done.
+
+Searching word: 'words' ...
+Done.
+
+
+28. Write a shell script which deletes all the lines containing the word "unix" in the files   
+supplied as arguments to it.
+
+aditi@DESKTOP-8NGKNR6:~$ cat unix.txt
+unix
+hello
+i love unix
+linux is best
+
+aditi@DESKTOP-8NGKNR6:~$ sh 28.sh unix.txt
+
+Output :
+
+aditi@DESKTOP-8NGKNR6:~$ cat unix.txt
+hello
+linux is best
+
+
+
+29. The word "unix" is present in only some of the files syupplied as arguments to the shell  
+script. You script should search each of       these files in turn and stop at the first file         
+that it encounters containing the word unix. The filename should be displayed on the screen.
+
+for i; do
+    echo "Searching file: $i ..."
+
+    if grep -q "unix" "$i"; then
+        echo "Found in $i"
+        exit
+    fi
+    echo "Done."
+done
+
+Output:
+
+aditi@DESKTOP-8NGKNR6:~$ sh 29.sh unix.txt
+Searching file: unix.txt ...
+Found in unix.txt
+
+aditi@DESKTOP-8NGKNR6:~$ sh 29.sh file1.txt
+Searching file: file1.txt ...
+Done.
+
+
+30. A shell script receives even number of filenames. Suppose four filenames are supplied then  
+the first file should get copied into       second file, the third file should get copied into 
+fourth and so on.. If odd number of filenames are supplied display error message.
+
+#Zero arguments
+if [ $# -eq 0 ]; then
+        echo "No Arguments"
+        exit
+fi
+prevFile=$1
+# If even no of args
+if [ $(echo $# % 2 | bc ) -eq 0 ]
+then
+        # Looping through each Argument
+        count=1
+        for i; do
+                if !(($count % 2)); then
+                        cp $prevFile $i
+                        echo "'$prevFile' copied to -> $i"
+                else
+                        prevFile=$i
+                fi
+                count=$(echo $count+1 | bc )
+        done
+# if odd no of args
+else
+        echo "Odd no of Arguments"
+        exit
+fi
+
+Output :
+//checking new1.txt which is blank
+aditi@DESKTOP-8NGKNR6:~$ cat new1.txt
+
+//checking new.txt 
+aditi@DESKTOP-8NGKNR6:~$ cat new.txt
+Hello
+My name is aditi
+Class MCA 3
+Have a good Day
+Nice to Meet You
+
+//running the scrpit
+aditi@DESKTOP-8NGKNR6:~$ sh 30.sh new.txt new1.txt
+'new.txt' copied to -> new1.txt
+
+//checking new1.txt again
+aditi@DESKTOP-8NGKNR6:~$ cat new1.txt
+Hello
+My name is aditi
+Class MCA 3
+Have a good Day
+Nice to Meet You
+
+
+31. The script displays a list of all files in the current directory to which you have read,    
+write and execute permissions.
+
+ls -l | awk '$1 ~ /rwx/'
+
+Output:
+
+aditi@DESKTOP-8NGKNR6:~$ sh 31.sh
+drwxr-xr-x 2 aditi aditi 4096 Oct  5 20:14 hello
+-rwxr-xr-x 1 aditi aditi  798 Nov 25 00:13 hello.sh
+drwxr-xr-x 2 aditi aditi 4096 Nov 30 15:25 try
+
+
+32. The script receives any number of filenames as arguments. It should check whether every 
+argument supplied is a file or directory.       If it is a directory it should be reported.         
+If it is a filename then name of the file as well as the number of lines present in it should               
+be reported.
+
+
+for i; do
+    if [ -d $i ]
+    then
+          echo "$i -> directory"
+    elif [ -f $i ]
+    then
+          printf "$i -> file with lines: "
+          wc -l $i | awk {'print $1'}
+    else
+          echo "$i -> Invalid"
+    fi
+done
+
+Output:
+
+aditi@DESKTOP-8NGKNR6:~$ sh 32.sh hello new.txt
+hello -> directory
+new.txt -> file with lines: 5
+
+
+33. A script will receive any number of filenames as arguments. It should check whether such  
+files already exist. If they do, then it       should be reported, if not then check if a         
+subdirectory "mydir" exists or not in the current directory, if it doesnt exist then it         
+should be created and in it the files supplied as arguments should be created. 
+
+if [ $# -eq 0 ]; then
+        echo "No Arguments passed"
+        exit
+fi
+
+for i; do
+        # If file exists
+        if [ -f $i ]
+        then
+                echo "$i exists"
+        else
+                # if "mkdir" exists
+                if [ -d "mydir" ]
+                then
+                     # Directory exists
+                     printf ""
+                else
+                     mkdir mydir
+                fi
+                touch mydir/$i
+                echo "$i file created in \"mydir\""
+        fi
+done
+
+Output:
+
+aditi@DESKTOP-8NGKNR6:~$ ls
+1      13.sh  16.sh  19.sh  21.sh  25.sh  29.sh  31.sh  34.sh  38.sh  40.sh  file1.txt  new.txt   unix.txt
+1.sh   14.sh  17.sh  2.sh   22.sh  27.sh  3.sh   32.sh  35.sh  39.sh  5.sh   hello      new1.txt  wordFile.txt
+11.sh  15.sh  18.sh  20.sh  24.sh  28.sh  30.sh  33.sh  37.sh  4.sh   6.sh   hello.sh   try
+
+aditi@DESKTOP-8NGKNR6:~$ sh 33.sh new.txt
+new.txt exists
+
+aditi@DESKTOP-8NGKNR6:~$ sh 33.sh new2.txt
+new2.txt file created in "mydir"
+
+aditi@DESKTOP-8NGKNR6:~$ ls
+1      13.sh  16.sh  19.sh  21.sh  25.sh  29.sh  31.sh  34.sh  38.sh  40.sh  file1.txt  mydir     try
+1.sh   14.sh  17.sh  2.sh   22.sh  27.sh  3.sh   32.sh  35.sh  39.sh  5.sh   hello      new.txt   unix.txt
+11.sh  15.sh  18.sh  20.sh  24.sh  28.sh  30.sh  33.sh  37.sh  4.sh   6.sh   hello.sh   new1.txt  wordFile.txt
+
+aditi@DESKTOP-8NGKNR6:~$ cd mydir/
+
+aditi@DESKTOP-8NGKNR6:~/mydir$ ls
+new2.txt
+
+
+34. Accept the marks of 5 subjects and calculate the percentage and grade.
+
+read -p "Enter The marks of Subject 1 : " sub1
+read -p "Enter The marks of Subject 2 : " sub2
+read -p "Enter The marks of Subject 3 : " sub3
+read -p "Enter The marks of Subject 4 : " sub4
+read -p "Enter The marks of Subject 5 : " sub5
+total=$((sub1+sub2+sub3+sub4+sub5))
+percentage=$(echo $(echo "scale=1; 100/500" | bc)*$total | bc)
+echo "Percentage = " $percentage
+if [ $(echo "$percentage > 80" | bc -l) -eq 1 ]
+then
+        echo "Grade : Distiction"
+elif [ $(echo "$percentage > 70" | bc -l) -eq 1 ]
+then
+        echo "Grade : First Class"
+elif [ $(echo "$percentage > 60" | bc -l) -eq 1 ]
+then
+        echo "Grade : Second Class"
+elif [ $(echo "$percentage > 50" | bc -l) -eq 1 ]
+then
+        echo "Grade : Third Class"
+elif [ $(echo "$percentage > 35" | bc -l) -eq 1 ]
+then
+        echo "Grade : Pass"
+else
+        echo "Grade : Fail"
+fi
+
+Output:
+Enter The marks of Subject 1 : 45
+Enter The marks of Subject 2 : 45
+Enter The marks of Subject 3 : 35
+Enter The marks of Subject 4 : 66
+Enter The marks of Subject 5 : 23
+Percentage =  42.8
+Grade : Pass
+
+Enter The marks of Subject 1 : 50
+Enter The marks of Subject 2 : 51
+Enter The marks of Subject 3 : 56
+Enter The marks of Subject 4 : 54
+Enter The marks of Subject 5 : 55
+Percentage =  53.2
+Grade : Third Class
+
+35. Print armstrog nos. from 1 to 500. 
+
+i=1
+while [ $i -le 500 ]
+do
+        j=$i
+        total=0
+        while [ $j -gt 0 ]
+        do
+                temp=$(echo $j%10 | bc)
+                sum=$(echo $temp^3 | bc)
+                total=$(echo $total+$sum | bc)
+                j=$(echo $j/10 | bc)
+        done
+        if [ $total -eq $i ]
+        then
+                echo "Armstrong Number : " $i
+        fi
+        i=$(echo $i+1 | bc)
+done
+
+Output:
+Armstrong Number :  1
+Armstrong Number :  153
+Armstrong Number :  370
+Armstrong Number :  371
+Armstrong Number :  407
+
+36. Accept the measure (angles) of a triangle and displa the type of triangle. (eg. acute, right,obtuse)
+
+read -p "Enter Angle: " angle
+
+if [[ $angle -ge 0 && $angle -lt 90 ]]; then
+    echo "Acute Angle"
+elif [ $angle -eq 90 ]; then
+    echo "Right Angle"
+elif [[ $angle -ge 91 && $angle -le 180 ]]; then
+    echo "Obtuse Angle"
+else
+    echo "Incorrect Input"
+fi
+
+Output:
+Enter Angle: 60
+Acute Angle
+
+Enter Angle: 160
+Obtuse Angle
+
+
+37. Display all the numbers from 1 to 100 which are divisible by 7.
+
+echo "Numbers divisible By 7 inbetwwen 1 - 100 are :"
+num=7
+start=1
+while [ $start -le 100 ]
+do
+        if [ $(echo $start%$num | bc) -eq 0 ]
+        then
+                echo $start
+        fi
+
+        start=$((start+1))
+done
+
+Output:
+Numbers divisible By 7 inbetwwen 1 - 100 are :
+7
+14
+21
+28
+35
+42
+49
+56
+63
+70
+77
+84
+91
+98
+
+
+38. Find the largest and smallest of 3 different numbers.
+
+read -p "Enter First Number : " num1
+read -p "Enter Second Number : " num2
+read -p "Enter Third Number : " num3
+largest=$num1
+smallest=$num1
+if [ $num2 -gt $largest ]
+then
+        largest=$num2
+        if [ $num3 -gt $largest ]
+        then
+                largest=$num3
+        fi
+fi
+
+if [ $num2 -lt $smallest ]
+then
+        smallest=$num2
+        if [ $num3 -lt $smallest ]
+        then
+                smallest=$num3
+        fi
+fi
+echo "Largest : " $largest "Smallest : " $smallest
+
+Output:
+Enter First Number : 99
+Enter Second Number : 101
+Enter Third Number : 98
+Largest :  101 Smallest :  98
+
+
+39. Find HCF and LCM of a given no.
+
+read -p "Enter your Numbers : " num1 num2
+if [ $num1 -le $num2 ]
+then
+        temp=$num1
+        num1=$num2
+        num2=$temp
+fi
+numerator=$num1
+denominator=$num2
+rem=1
+
+while [ $rem -gt 0 ]
+do
+        rem=$(echo $numerator%$denominator | bc)
+        numerator=$denominator
+        denominator=$rem
+done
+
+echo "HCF : " $numerator
+lcm=$(echo $num1*$num2/$numerator | bc)
+echo "LCM : " $lcm
+
+Output:
+Enter your Numbers : 12 30
+HCF :  6
+LCM :  60
+
+
+40. Display the dates falling on Sundays of the current month.
+
+startdate=$(date -d "-0 month -$(($(date +%d)-1)) days" +%d-%b-%Y-%a)
+enddate=$(date -d "-$(date +%d) days +1 month" +%d-%b-%Y-%a)
+
+d=
+n=0
+until [ "$d" = "$enddate" ]
+do  
+    ((n++))
+    d=$(date -d "$startdate + $n days" +%d-%b-%Y-%a)
+    echo $d | grep "Sun"
+done
+
+
+Output:
+13-Dec-2020-Sun                                                                                                                               
+20-Dec-2020-Sun                                                                                                                               
+27-Dec-2020-Sun
